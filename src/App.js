@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import Navbar from './components/layout/Navbar';
 
 class App extends Component {
   render() {
-    const flag = false;
-
     return (
-      <div>{2 === '2' ? <h1>Hello React</h1> : <p>Something else!</p>}</div>
+      <div>
+        <Navbar />
+      </div>
     );
   }
 }
