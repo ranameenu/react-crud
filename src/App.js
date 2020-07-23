@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 class App extends Component {
   render() {
+    const flag = false;
+
     return (
-      <div>
-        <h1>Hello React</h1>
-      </div>
+      <div>{2 === '2' ? <h1>Hello React</h1> : <p>Something else!</p>}</div>
     );
   }
 }
