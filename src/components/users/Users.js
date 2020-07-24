@@ -1,6 +1,27 @@
 import React, { Component, Fragment } from 'react';
+import UserItem from './UserItem';
 
 class Users extends Component {
+  state = {
+    users: [
+      {
+        id: 1,
+        name: 'Rakesh Rankawat',
+        age: 26,
+      },
+      {
+        id: 2,
+        name: 'Meenu Rana',
+        age: 26,
+      },
+      {
+        id: 3,
+        name: 'John Doe',
+        age: 34,
+      },
+    ],
+  };
+
   render() {
     return (
       <Fragment>
@@ -15,12 +36,9 @@ class Users extends Component {
           </div>
         </div>
 
-        <div className="card mb-3">
-          <div className="card-body">
-            <h4>Name: John Doe</h4>
-            <p className="mb-0">Age: 34</p>
-          </div>
-        </div>
+        {this.state.users.map((val, i) => (
+          <UserItem key={val.id} val={val} />
+        ))}
       </Fragment>
     );
   }
