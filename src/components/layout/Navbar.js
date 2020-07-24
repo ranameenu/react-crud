@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <nav
       className="navbar navbar-expand-lg navbar-dark"
@@ -9,7 +9,7 @@ const Navbar = () => {
     >
       <div className="container">
         <Link to="/" className="navbar-brand">
-          CRUD
+          {props.brand}
         </Link>
         <button
           className="navbar-toggler"
