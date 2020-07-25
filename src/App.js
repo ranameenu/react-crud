@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Navbar brand="CRUD" icon="something" />
+        <Navbar brand="CRUD" />
         <div className="container pt-3">
           <Switch>
             <Route exact path="/" render={() => <Redirect to="/users" />} />

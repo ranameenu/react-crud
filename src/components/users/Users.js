@@ -1,26 +1,17 @@
 import React, { Component, Fragment } from 'react';
+import axios from 'axios';
 import UserItem from './UserItem';
 
 class Users extends Component {
   state = {
-    users: [
-      {
-        id: 1,
-        name: 'Rakesh Rankawat',
-        age: 26,
-      },
-      {
-        id: 2,
-        name: 'Meenu Rana',
-        age: 26,
-      },
-      {
-        id: 3,
-        name: 'John Doe',
-        age: 34,
-      },
-    ],
+    users: null,
   };
+
+  async componentDidMount() {
+    const response = await axios.get('http://localhost:5000/arrUsers');
+
+    this.setState({ users: response.data });
+  }
 
   render() {
     return (
@@ -36,9 +27,11 @@ class Users extends Component {
           </div>
         </div>
 
-        {this.state.users.map((val, i) => (
-          <UserItem key={val.id} val={val} />
-        ))}
+        {this.state.users !== null ? (
+          this.state.users.map((val, i) => <UserItem key={val.id} val={val} />)
+        ) : (
+          <p>No users found</p>
+        )}
       </Fragment>
     );
   }

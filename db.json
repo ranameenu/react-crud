@@ -1,0 +1,19 @@
+{
+  "arrUsers": [
+    {
+      "id": 1,
+      "name": "Rakesh Rankawat",
+      "age": 26
+    },
+    {
+      "id": 2,
+      "name": "Meenu Rana",
+      "age": 26
+    },
+    {
+      "id": 3,
+      "name": "John Doe",
+      "age": 34
+    }
+  ]
+}
