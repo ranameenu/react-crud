@@ -10,6 +10,7 @@ import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Users from './components/users/Users';
+import AddUser from './components/users/AddUser';
 import NotFound from './components/pages/NotFound';
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
             <Route exact path="/home" component={Home} />
             <Route exact path="/about" component={About} />
             <Route exact path="/users" component={Users} />
+            <Route exact path="/users/add" component={AddUser} />
             <Route component={NotFound} />
           </Switch>
         </div>

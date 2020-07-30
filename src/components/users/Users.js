@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import UserItem from './UserItem';
 
@@ -9,6 +10,7 @@ class Users extends Component {
 
   async componentDidMount() {
     const response = await axios.get('http://localhost:5000/arrUsers');
+    console.log(response);
 
     this.setState({ users: response.data });
   }
@@ -21,9 +23,9 @@ class Users extends Component {
             <h1>Users</h1>
           </div>
           <div className="col-6">
-            <button className="btn btn-primary float-right mt-2">
+            <Link to="/users/add" className="btn btn-primary float-right mt-2">
               Add User
-            </button>
+            </Link>
           </div>
         </div>
 
