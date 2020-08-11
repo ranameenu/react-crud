@@ -5,7 +5,7 @@ class Navbar extends Component {
   render() {
     return (
       <nav
-        className="navbar navbar-expand-lg navbar-dark"
+        className="navbar navbar-expand-md navbar-dark"
         style={{ backgroundColor: '#7952b3' }}
       >
         <div className="container">

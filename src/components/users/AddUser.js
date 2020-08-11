@@ -6,6 +6,10 @@ class AddUser extends Component {
   state = {
     name: '',
     age: '',
+    error: {
+      name: '',
+      age: '',
+    },
   };
 
   onChange = (e) => {
@@ -50,6 +54,7 @@ class AddUser extends Component {
               name="name"
               value={this.state.name}
               onChange={this.onChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -60,6 +65,7 @@ class AddUser extends Component {
               name="age"
               value={this.state.age}
               onChange={this.onChange}
+              required
             />
           </div>
           <input
