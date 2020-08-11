@@ -9,8 +9,7 @@ class Users extends Component {
   };
 
   async componentDidMount() {
-    const response = await axios.get('http://localhost:5000/arrUsers');
-    console.log(response);
+    const response = await axios.get('http://localhost:5001/users');
 
     this.setState({ users: response.data });
   }

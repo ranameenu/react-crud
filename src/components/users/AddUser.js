@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class AddUser extends Component {
   state = {
@@ -7,12 +8,23 @@ class AddUser extends Component {
     age: '',
   };
 
-  onChangeName = (e) => {
-    this.setState({ name: e.target.value });
+  onChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
-  onChangeAge = (e) => {
-    this.setState({ age: e.target.value });
+  onSubmit = async (e) => {
+    e.preventDefault();
+
+    const user = {
+      name: this.state.name,
+      age: this.state.age,
+    };
+
+    // Add User
+    await axios.post('http://localhost:5001/users', user);
+
+    // Redirect
+    this.props.history.push('/users');
   };
 
   render() {
@@ -29,7 +41,7 @@ class AddUser extends Component {
           </div>
         </div>
 
-        <form className="w-50">
+        <form className="w-50" onSubmit={this.onSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input
@@ -37,7 +49,7 @@ class AddUser extends Component {
               className="form-control"
               name="name"
               value={this.state.name}
-              onChange={this.onChangeName}
+              onChange={this.onChange}
             />
           </div>
           <div className="form-group">
@@ -47,7 +59,7 @@ class AddUser extends Component {
               className="form-control"
               name="age"
               value={this.state.age}
-              onChange={this.onChangeAge}
+              onChange={this.onChange}
             />
           </div>
           <input

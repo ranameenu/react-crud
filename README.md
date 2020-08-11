@@ -7,3 +7,6 @@
 
     JSON Server
     # npm run json-server
+
+    Start Both
+    # npm run dev
