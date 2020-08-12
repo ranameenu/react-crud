@@ -1,39 +1,14 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Rakesh Rankawat",
-      "age": 26
+      "name": "meenu",
+      "age": "24",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Meenu Rana",
-      "age": 26
-    },
-    {
-      "id": 3,
-      "name": "John Doe",
-      "age": 34
-    },
-    {
-      "name": "Happy Singh",
-      "age": "45",
-      "id": 4
-    },
-    {
-      "name": "meenu2",
-      "age": "22",
-      "id": 5
-    },
-    {
-      "name": "",
-      "age": "",
-      "id": 6
-    },
-    {
-      "name": "Ram",
-      "age": "34",
-      "id": 7
+      "name": "Rakesh",
+      "age": "26",
+      "id": 2
     }
   ]
 }

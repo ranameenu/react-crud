@@ -25,7 +25,7 @@ class AddUser extends Component {
     };
 
     // Add User
-    await axios.post('http://localhost:5001/users', user);
+    await axios.post('/users', user);
 
     // Redirect
     this.props.history.push('/users');

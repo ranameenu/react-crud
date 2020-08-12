@@ -9,10 +9,19 @@ class Users extends Component {
   };
 
   async componentDidMount() {
-    const response = await axios.get('http://localhost:5001/users');
+    const response = await axios.get('/users');
 
     this.setState({ users: response.data });
   }
+
+  onDelete = async (userId) => {
+    // delete user
+    await axios.delete(`/users/${userId}`);
+
+    let copyUsers = this.state.users;
+    copyUsers = copyUsers.filter((val, i) => val.id !== userId);
+    this.setState({ users: copyUsers });
+  };
 
   render() {
     return (
@@ -28,8 +37,10 @@ class Users extends Component {
           </div>
         </div>
 
-        {this.state.users !== null ? (
-          this.state.users.map((val, i) => <UserItem key={val.id} val={val} />)
+        {this.state.users !== null && this.state.users.length > 0 ? (
+          this.state.users.map((val) => (
+            <UserItem key={val.id} val={val} onDelete={this.onDelete} />
+          ))
         ) : (
           <p>No users found</p>
         )}
