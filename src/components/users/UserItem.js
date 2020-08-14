@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class UserItem extends Component {
   onClick = () => {
@@ -6,7 +7,7 @@ class UserItem extends Component {
   };
 
   render() {
-    const { name, age } = this.props.val;
+    const { id, name, age } = this.props.val;
 
     return (
       <div className="card mb-3">
@@ -22,7 +23,9 @@ class UserItem extends Component {
                 style={point}
                 onClick={this.onClick}
               ></i>
-              <i className="fas fa-pencil-alt float-right"></i>
+              <Link to={`/users/edit/${id}`}>
+                <i className="fas fa-pencil-alt float-right"></i>
+              </Link>
             </div>
           </div>
         </div>
