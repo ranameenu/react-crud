@@ -1,15 +1,11 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 class AddUser extends Component {
   state = {
-    name: '',
-    age: '',
-    error: {
-      name: '',
-      age: '',
-    },
+    name: "",
+    age: "",
   };
 
   onChange = (e) => {
@@ -25,10 +21,10 @@ class AddUser extends Component {
     };
 
     // Add User
-    await axios.post('/users', user);
+    await axios.post("/users", user);
 
     // Redirect
-    this.props.history.push('/users');
+    this.props.history.push("/users");
   };
 
   render() {

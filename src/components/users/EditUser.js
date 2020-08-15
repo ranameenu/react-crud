@@ -1,8 +1,47 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 class EditUser extends Component {
+  state = {
+    name: "",
+    age: "",
+  };
+
+  async componentDidMount() {
+    const id = this.props.match.params.id;
+
+    const res = await axios.get(`/users/${id}`);
+
+    const user = res.data;
+
+    this.setState({
+      name: user.name,
+      age: user.age,
+    });
+  }
+
+  onChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  onSubmit = async (e) => {
+    e.preventDefault();
+
+    const user = {
+      name: this.state.name,
+      age: this.state.age,
+    };
+
+    const id = this.props.match.params.id;
+
+    // Update user
+    await axios.put(`/users/${id}`, user);
+
+    // Redirect
+    this.props.history.push("/users");
+  };
+
   render() {
     return (
       <div>
@@ -20,15 +59,29 @@ class EditUser extends Component {
         <form className="w-50" onSubmit={this.onSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
-            <input type="text" className="form-control" name="name" required />
+            <input
+              type="text"
+              className="form-control"
+              name="name"
+              value={this.state.name}
+              onChange={this.onChange}
+              required
+            />
           </div>
           <div className="form-group">
             <label htmlFor="age">Age</label>
-            <input type="number" className="form-control" name="age" required />
+            <input
+              type="number"
+              className="form-control"
+              name="age"
+              value={this.state.age}
+              onChange={this.onChange}
+              required
+            />
           </div>
           <input
             type="submit"
-            value="Add User"
+            value="Update User"
             className="btn btn-success mt-2"
           />
         </form>
